@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Grafos
 {
@@ -46,7 +44,7 @@ namespace Grafos
         {
             for (int i = 1; i < vertices.Length; i++)
             {
-                if (getGrau(vertices[0]) != getGrau(vertices[i])) { return false; }
+                if (vertices[0].adjacentes.Count != vertices[i].adjacentes.Count) { return false; }
             }
             return true;
         }
@@ -66,7 +64,7 @@ namespace Grafos
 
             foreach (Vertice vertice in vertices)
             {
-                if (getGrau(vertice) < numeroVertices - 1)
+                if (vertice.adjacentes.Count < numeroVertices - 1)
                 {
                     return false;
                 }

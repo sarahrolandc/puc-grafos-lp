@@ -53,8 +53,8 @@
   <ItemGroup>
     <Compile Include="Builders\GrafoDirigidoBuilder.cs" />
     <Compile Include="Builders\GrafoNaoDirigidoBuilder.cs" />
-    <Compile Include="GrafoDirigidoTests.cs" />
-    <Compile Include="GrafoNaoDirigidoTests.cs" />
+    <Compile Include="UnitTests.cs" />
+    <Compile Include="IntegrationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

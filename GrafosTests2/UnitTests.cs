@@ -1,34 +1,38 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Grafos;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GrafosTests2
 {
     [TestClass()]
-    public class GrafoDirigidoTests
+    public class UnitTests
     {
         [TestMethod()]
-        public void hasCicloTest()
+        public void isCompletoTest()
         {
-            GrafoDirigido grafo = new GrafoDirigidoBuilder()
-                .GrafoComCiclo()
+            GrafoNaoDirigido grafo = new GrafoNaoDirigidoBuilder()
+                .GrafoCompleto()
                 .Build();
 
-            Assert.AreEqual(grafo.hasCiclo(), true);
+            Assert.AreEqual(grafo.isCompleto(), true);
         }
 
         [TestMethod()]
-        public void hasNotCicloTest()
+        public void isNotCompletoTest()
         {
-            GrafoDirigido grafo = new GrafoDirigidoBuilder()
-                .GrafoSemCiclo()
+            GrafoNaoDirigido grafo = new GrafoNaoDirigidoBuilder()
+                .GrafoNaoCompleto()
                 .Build();
 
-            Assert.AreEqual(grafo.hasCiclo(), false);
+            Assert.AreEqual(grafo.isCompleto(), false);
+        }
+        [TestMethod()]
+        public void isRegular()
+        {
+            GrafoNaoDirigido grafo = new GrafoNaoDirigidoBuilder()
+            .Regular()
+            .Build();
+
+            Assert.AreEqual(grafo.isRegular(), true);
         }
 
         [TestMethod()]

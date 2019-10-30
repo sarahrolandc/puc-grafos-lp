@@ -1,16 +1,33 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Grafos;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GrafosTests2
 {
     [TestClass()]
-    public class GrafoNaoDirigidoTests
+    public class IntegrationTests
     {
+        //Testes de integração considerando métodos de interação intra classe
+
+        [TestMethod()]
+        public void hasCicloTest()
+        {
+            GrafoDirigido grafo = new GrafoDirigidoBuilder()
+                .GrafoComCiclo()
+                .Build();
+
+            Assert.AreEqual(grafo.hasCiclo(), true);
+        }
+
+        [TestMethod()]
+        public void hasNotCicloTest()
+        {
+            GrafoDirigido grafo = new GrafoDirigidoBuilder()
+                .GrafoSemCiclo()
+                .Build();
+
+            Assert.AreEqual(grafo.hasCiclo(), false);
+        }
+
 
         [TestMethod]
         public void CutVertice()
@@ -36,38 +53,8 @@ namespace GrafosTests2
             bool expected = grafo.getAGMKruskal().Equals(grafoEsperado);
 
             Assert.AreEqual(expected, true);
-        }
+        }  
         
-        [TestMethod()]
-        public void isRegular()
-        {
-            GrafoNaoDirigido grafo = new GrafoNaoDirigidoBuilder()
-            .Regular()
-            .Build();
-
-            Assert.AreEqual(grafo.isRegular(), true);
-        }
-
-        [TestMethod()]
-        public void isCompletoTest()
-        {
-            GrafoNaoDirigido grafo = new GrafoNaoDirigidoBuilder()
-                .GrafoCompleto()
-                .Build();
-
-            Assert.AreEqual(grafo.isCompleto(), true);
-        }
-
-        [TestMethod()]
-        public void isNotCompletoTest()
-        {
-            GrafoNaoDirigido grafo = new GrafoNaoDirigidoBuilder()
-                .GrafoNaoCompleto()
-                .Build();
-
-            Assert.AreEqual(grafo.isCompleto(), false);
-        }
-
         [TestMethod()]
         public void isConexoTest()
         {
