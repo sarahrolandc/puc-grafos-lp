@@ -17,6 +17,19 @@ namespace GrafosTests2
         }
 
         [TestMethod()]
+        public void isAdjacenteTest()
+        {
+            GrafoNaoDirigido grafo = new GrafoNaoDirigidoBuilder()
+                .GrafoCompleto()
+                .Build();
+
+            Vertice v1 = grafo.vertices[0];
+            Vertice v2 = grafo.vertices[1];
+
+            Assert.AreEqual(grafo.isAdjacente(v1, v2), true);
+        }
+
+        [TestMethod()]
         public void isNotCompletoTest()
         {
             GrafoNaoDirigido grafo = new GrafoNaoDirigidoBuilder()
