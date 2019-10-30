@@ -46,7 +46,9 @@ namespace GrafosTests2
                 .GrafoCompleto()
                 .Build();
 
-            Assert.AreEqual(grafo.isPendente(), false);
+            Vertice v1 = grafo.vertices[0];
+
+            Assert.AreEqual(grafo.isPendente(v1), false);
         }
 
         [TestMethod()]
