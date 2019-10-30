@@ -30,6 +30,26 @@ namespace GrafosTests2
         }
 
         [TestMethod()]
+        public void isNotNuloTest()
+        {
+            GrafoNaoDirigido grafo = new GrafoNaoDirigidoBuilder()
+                .GrafoCompleto()
+                .Build();
+
+            Assert.AreEqual(grafo.isNulo(), false);
+        }
+
+        [TestMethod()]
+        public void isNotPendenteTest()
+        {
+            GrafoNaoDirigido grafo = new GrafoNaoDirigidoBuilder()
+                .GrafoCompleto()
+                .Build();
+
+            Assert.AreEqual(grafo.isPendente(), false);
+        }
+
+        [TestMethod()]
         public void isNotCompletoTest()
         {
             GrafoNaoDirigido grafo = new GrafoNaoDirigidoBuilder()
